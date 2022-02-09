@@ -41,12 +41,9 @@ sed -i 's/disablebuiltinminer=0/disablebuiltinminer=1/' $lconf
 echo "Restarting Lynx. Give it a minute."
 systemctl restart lynxd
 
-input1="	iptables -A INPUT -p tcp --dport $electrumSSLPort -j ACCEPT"
-input2="	iptables -A INPUT -p tcp --dport $electrumWSSPort -j ACCEPT"
-search="iptables -A INPUT -p tcp --dport 22566 -j ACCEPT -j ACCEPT # Required public Lynx port."
-sed -i "s/$search/$search\n$input2/" /usr/local/bin/lyf.sh # Drop in the Electrum ports into the firewall script.
-sed -i "s/$search/$search\n$input1/" /usr/local/bin/lyf.sh # Drop in the Electrum ports into the firewall script.
-sed -i "s/22 /5829 /" /usr/local/bin/lyf.sh # change port 22 to 5829 for a specific VPS vendor. Comment this when not needed.
+search="tcp --dport 22566"
+replace="tcp --match multiport --dport 22566,$electrumSSLPort,$electrumWSSPort"
+sed -i "s/${search}/${replace}/g" /usr/local/bin/lyf.sh # Drop in the Electrum ports into the firewall script.
 
 # In order for Certbot to ping the VPS during the verification step, 
 # the firewall must be wide open.
@@ -71,7 +68,7 @@ apt-get dist-upgrade -y && apt-get auto-remove -y # Update to the latest distro 
 cd && git clone https://github.com/MadCatMining/electrumx-installer.git
 cd electrumx-installer/ && ./bootstrap.sh
 # Purge a lot of space from the coins file, plus the out of date Lynx entry.
-sed -i '/class Verge(Coin):/Q' /usr/local/lib/python3.9/dist-packages/electrumx/lib/coins.py
+sed -i '/class Unitus(Coin):/Q' /usr/local/lib/python3.9/dist-packages/electrumx/lib/coins.py
 # Append the new Lynx coins.py file
 echo "
 # https://docs.getlynx.io/electrumx/electrumx
