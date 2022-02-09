@@ -2,7 +2,7 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #
 # Execute this script with this command
-# $ wget -O - -q https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.mydomain.com
+# $ wget -O - https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.mydomain.com
 #
 # dpkg-reconfigure locales # Not needed for Linode, only discount VPS vendors. Used to change region & locale coding. UTF-8 is recommended.
 #
