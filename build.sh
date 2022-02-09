@@ -1,12 +1,16 @@
 #!/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #
+# Execute this script with this command
+# $ wget -O - -q https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.mydomain.com
+#
 # dpkg-reconfigure locales # Not needed for Linode, only discount VPS vendors. Used to change region & locale coding. UTF-8 is recommended.
 #
 # Only run this script as root on a freshly installed Debian 11 target VPS
 # In order for Electrum to configure the SSL paths and name, the following value is required. 
 # Please be sure to configure your DNS before running this script
-host="electrum.logware.us"
+#host="electrum.logware.us"
+host="$1"
 electrumSSLPort="50002"
 electrumWSSPort="50004"
 #
