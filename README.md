@@ -5,7 +5,7 @@ It would be best if you only executed this script on a freshly installed instanc
 
 The execute this script quick, use the following command:
 
-$ wget -O - -q https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.mydomain.com
+$ wget -O - https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.mydomain.com
 
 Many thanks to Mad Cat Mining (https://mcmpool.eu) for assistance with the recent updates to the Electrum installer portion of this build. This build script also uses the LynxCI script to complete the installation of Lynx. 
 
