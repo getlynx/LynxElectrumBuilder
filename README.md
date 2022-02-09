@@ -2,7 +2,12 @@ This script will do the heavy lifting and build an ElectrumX node for Lynx on De
 
 It would be best if you only executed this script on a freshly installed instance of Debian 11. Furthermore, we recommend a public VPS vendor (i.e., Linode, Digital Ocean, etc.) so that others can access the public Electrum.
 
-Running this script is a two-step process. First, run it as the root user once, wait for it to complete, and reboot the VPS. Then, log in as the lynx user (the root account gets locked for security reasons). Then, use the command 'sudo su' to access the root account. Then, rerun the script. 
+Running this script is a five-step process:
+1. Adjust your DNS for the hostname. Doing so will allow Certbot to generate your SSL certificate quickly.
+2. Run it as the root user once, wait for it to complete, and reboot the VPS.
+3. Log in as the lynx user (the root account gets locked for security reasons).
+4. Use the command 'sudo su' to access the root account.
+5. Rerun the script. 
 
 $ wget -O - https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.mydomain.com
 
