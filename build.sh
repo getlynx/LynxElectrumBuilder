@@ -19,8 +19,11 @@ if [ -f "$lconf" ] # This block executes the second time the script is run.
 then
 
 rpcuser="$(sed -ne 's|[\t]*rpcuser=[\t]*||p' $lconf)" # Pull the RPC values from the live lynx.conf file.
+rpcuser="${rpcuser//$'\015'}"
 rpcpassword="$(sed -ne 's|[\t]*rpcpassword=[\t]*||p' $lconf)" # Pull the RPC values from the live lynx.conf file.
+rpcpassword="${rpcpassword//$'\015'}"
 rpcport="$(sed -ne 's|[\t]*rpcport=[\t]*||p' $lconf)" # Pull the RPC values from the live lynx.conf file.
+rpcport="${rpcport//$'\015'}"
 
 echo "
 DB_DIRECTORY=/db
@@ -35,6 +38,7 @@ HOST=
 " > /etc/electrumx.conf
 
 sed -i 's/disablebuiltinminer=0/disablebuiltinminer=1/' $lconf
+echo "Restarting Lynx. Give it a minute."
 systemctl restart lynxd
 
 
