@@ -41,10 +41,11 @@ sed -i 's/disablebuiltinminer=0/disablebuiltinminer=1/' $lconf
 echo "Restarting Lynx. Give it a minute."
 systemctl restart lynxd
 
-
-insert="iptables -A INPUT -p tcp --dport $electrumSSLPort -j ACCEPT
-iptables -A INPUT -p tcp --dport $electrumWSSPort -j ACCEPT"
-sed -i "s/22566/22566\n$insert/" /usr/local/bin/lyf.sh # Drop in the Electrum ports into the firewall script.
+input1="	iptables -A INPUT -p tcp --dport $electrumSSLPort -j ACCEPT"
+input2="	iptables -A INPUT -p tcp --dport $electrumWSSPort -j ACCEPT"
+search="iptables -A INPUT -p tcp --dport 22566 -j ACCEPT -j ACCEPT # Required public Lynx port."
+sed -i "s/$search/$search\n$input2/" /usr/local/bin/lyf.sh # Drop in the Electrum ports into the firewall script.
+sed -i "s/$search/$search\n$input1/" /usr/local/bin/lyf.sh # Drop in the Electrum ports into the firewall script.
 sed -i "s/22 /5829 /" /usr/local/bin/lyf.sh # change port 22 to 5829 for a specific VPS vendor. Comment this when not needed.
 
 # In order for Certbot to ping the VPS during the verification step, 
