@@ -2,7 +2,7 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #
 # Execute this script with this command
-# $ wget -O - https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.mydomain.com
+# $ wget -O - https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.logware.club
 #
 # dpkg-reconfigure locales # Not needed for Linode, only discount VPS vendors. Used to change region & locale coding. UTF-8 is recommended.
 #
@@ -66,7 +66,7 @@ systemctl restart electrumx && journalctl -u electrumx -f -n 500
 else # This block executes the first time the script is run.
 
 apt-get update -y && apt-get upgrade -y # Get the OS up-to-date, first thing.
-apt-get install htop nano iptables git certbot python3-pip gcc g++ python-dev librocksdb-dev build-essential libsnappy-dev zlib1g-dev libbz2-dev libgflags-dev liblz4-dev libzstd-dev curl -y
+apt-get install htop nano iptables git certbot python3-pip gcc g++ librocksdb-dev build-essential libsnappy-dev zlib1g-dev libbz2-dev libgflags-dev liblz4-dev libzstd-dev curl python3-venv -y
 apt-get dist-upgrade -y && apt-get auto-remove -y # Update to the latest distro and remove unused packages.
 cd && git clone https://github.com/MadCatMining/electrumx-installer.git
 cd electrumx-installer/ && ./bootstrap.sh
