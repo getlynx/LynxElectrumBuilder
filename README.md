@@ -1,4 +1,4 @@
-This script will do the heavy lifting and build an ElectrumX node for Lynx on Debian 11. There is no need to install Lynx first; this single script is all you need for a Lynx Electrum X server.
+This script will do the heavy lifting and build an ElectrumX node for Lynx on Debian 11. This single script is all you need for a Lynx Electrum X server. When complete, you will have a full Lynx node (with the built-in miner turned off) and an Electrum server automatically configured and running. In addition, Certbot will automatically renew your SSL certificates every ~70 days.
 
 It would be best if you only executed this script on a freshly installed instance of Debian 11. Furthermore, we recommend a public VPS vendor (i.e., Linode, Digital Ocean, etc.) so that others can access the public Electrum.
 
