@@ -9,8 +9,8 @@ Running this script is a five-step process:
 4. Use the command 'sudo su' to access the root account.
 5. Rerun the script.
 
-	wget -O - https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.mydomain.com
-
 Many thanks to Mad Cat Mining (https://mcmpool.eu) for assistance with the recent updates to the Electrum installer portion of this build. This build script also uses the LynxCI script to complete the installation of Lynx. 
 
+	wget -O - https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.mydomain.com
+	
 This script only supports Debian 11.
