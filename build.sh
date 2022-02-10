@@ -2,7 +2,7 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #
 # Execute this script with this command
-# $ wget -O - https://raw.githubusercontent.com/getlynx/LynxElectrumBuilder/main/build.sh | bash -s electrum.logware.club
+# $ wget -O - https://electrumx.getlynx.io/ | bash -s electrum.domain.com
 #
 # dpkg-reconfigure locales # Not needed for Linode, only discount VPS vendors. Used to change region & locale coding. UTF-8 is recommended.
 #
@@ -71,7 +71,7 @@ cd electrumx-installer/ && ./bootstrap.sh
 sed -i '/class Unitus(Coin):/Q' /usr/local/lib/python3.9/dist-packages/electrumx/lib/coins.py
 # Append the new Lynx coins.py file
 echo "
-# https://docs.getlynx.io/electrumx/electrumx
+# https://docs.getlynx.io/electrumx/
 class Lynx(Coin):
 	NAME = \"Lynx\"
 	SHORTNAME = \"LYNX\"
