@@ -36,7 +36,6 @@ SSL_CERTFILE=/etc/letsencrypt/live/$host/fullchain.pem
 SSL_KEYFILE=/etc/letsencrypt/live/$host/privkey.pem
 SERVICES=ssl://:$electrumSSLPort,wss://:$electrumWSSPort,rpc://
 REPORT_SERVICES=wss://$host:$electrumWSSPort,ssl://$host:$electrumSSLPort
-HOST=
 " > /etc/electrumx.conf
 
 sed -i 's/disablebuiltinminer=0/disablebuiltinminer=1/' $lconf
