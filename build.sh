@@ -89,11 +89,11 @@ class Lynx(Coin):
 	RPC_PORT = 9332
 	PEER_DEFAULT_PORTS = {'t': '$electrumWSSPort', 's': '$electrumSSLPort'}
 	PEERS = [
-		'electrum.getlynx.io s t',
-		'electrum.getlynx.club s t',
-		'electrum.logware.io s t',
-		'electrum.logware.club s t',
-		'electrum.logware.us s t',
+		'electrum5.getlynx.io s t',
+		'electrum6.getlynx.io s t',
+		'electrum7.getlynx.io s t',
+		'electrum8.getlynx.io s t',
+		'electrum9.getlynx.io s t',
 	]
 	REORG_LIMIT = 5000
 " >> /usr/local/lib/python3.9/dist-packages/electrumx/lib/coins.py
